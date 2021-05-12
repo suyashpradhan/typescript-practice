@@ -1,47 +1,101 @@
-export type Option={
-  optionName:string,
-  isRight:boolean
-}
+export type Quiz = {
+  quizName: string;
+  questions: Questions[];
+};
 
-export type Question={
-  question:string
-  points:number,
-  option:Option[]
-}
+export type Questions = {
+  id: number;
+  question: string;
+  points: number;
+  negativePoints: number;
+  options: Options[];
+};
 
-export type Quiz={
-  quizName:string,
-  questions:Question[]
+export type Options = {
+  answer: string;
+  isRight: boolean;
+};
 
-}
-
-const quizData:Quiz = {
-  quizName: "My QUIZ",
+const quizData: Quiz = {
+  quizName: "Breaking Bad Quiz",
 
   questions: [
     {
-      question: "What is your name?",
-      points:5,
-      option: [
+      id: 1,
+      question: "What was the street name of Walter White's crystal meth?",
+      points: 5,
+      negativePoints: 2,
+      options: [
         {
-          optionName: "Suyash",
+          answer: "Blue Sky",
           isRight: true,
         },
         {
-          optionName: "Soham",
+          answer: "Blue Diamond",
           isRight: false,
         },
       ],
-    },{
-      question: "What is my age",
-      points:15,
-      option: [
+    },
+    {
+      id: 2,
+      question: "Who said this dialogue: - 'I know a guy who knows a guy'.",
+      points: 5,
+      negativePoints: 2,
+      options: [
         {
-          optionName: "24",
+          answer: "Mike Ehramntraut",
+          isRight: false,
+        },
+        {
+          answer: "Saul Goodman",
+          isRight: true,
+        },
+      ],
+    },
+    {
+      id: 3,
+      question: "What primitive weapon do Tuco’s murderous cousins favor?",
+      points: 5,
+      negativePoints: 2,
+      options: [
+        {
+          answer: "Axe",
           isRight: true,
         },
         {
-          optionName:"28",
+          answer: "Hammer",
+          isRight: false,
+        },
+      ],
+    },
+    {
+      id: 4,
+      question: "What was the hidden lab made by Gustavo Fring built over?",
+      points: 5,
+      negativePoints: 2,
+      options: [
+        {
+          answer: "A Warehouse",
+          isRight: false,
+        },
+        {
+          answer: "A Laundry",
+          isRight: true,
+        },
+      ],
+    },
+    {
+      id: Date.now(),
+      question: "They’re not rocks, Marie! They’re ----",
+      points: 10,
+      negativePoints: 2,
+      options: [
+        {
+          answer: "Minerals",
+          isRight: true,
+        },
+        {
+          answer: "Gems",
           isRight: false,
         },
       ],
@@ -49,5 +103,4 @@ const quizData:Quiz = {
   ],
 };
 
-export default quizData
-
+export { quizData };
