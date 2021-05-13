@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {App} from './App';
+import {TypeAxios} from './TypeAxios';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <TypeAxios />
   </React.StrictMode>,
   document.getElementById('root')
 );
