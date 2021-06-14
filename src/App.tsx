@@ -1,21 +1,27 @@
-import { Link, Route, Routes } from 'react-router-dom'
-import { Home } from './Components/Home'
-import { Todos } from './Components/Todos'
-import "./index.css"
+import "./index.css";
+import { scoreKeeper } from "./scoreKeeper";
+import { quiz } from "./data";
+
+scoreKeeper(22, quiz.questions[0], quiz.questions[0].options[1]);
 
 export const App = () => {
   return (
     <div>
-      <h1>Todo App Using TS</h1>
-      <br/>
-      <Link to="/home">Home</Link>
-      <Link to="/todos" style={{ marginLeft: "1rem" }}>View Todos</Link>
-      
-      <Routes>
-        <Route path="/home" element={<Home/>}></Route>
-        <Route path="/todos" element={<Todos/>}></Route>
-     </Routes>
+      <h1>Quiz App Using TS</h1>
+      <br />
+      <br />
+      <br />
+      <p>CurrentScore : 0</p>
+      {quiz.questions.map((question) => (
+        <div key={question.id}>
+          <h2>{question.question}</h2>
+          {question.options.map((option) => (
+            <h3 key={option.id}>{option.text}</h3>
+          ))}
+          <br />
+          <br />
+        </div>
+      ))}
     </div>
-  )
-}
-
+  );
+};
